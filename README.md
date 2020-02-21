@@ -10,12 +10,27 @@ put domain names in nginx.conf
 Copy `include_ssl/ssl.conf_template` to `include_ssl/ssl.conf` and put in certiticate name, or use:
 
 ```bash
+set -o allexport
 source config.src
+set +o allexport
 envsubst < ./include_ssl/ssl.conf_template > ./include_ssl/ssl.conf
 ```
 
+## 3) start
 
-## 3) systemd unit
+```bash
+sudo -i
+cd /home/ubuntu/nginx-certbot/
+docker-compose -f docker-compose.yml -f docker-compose-certbot.yml up
+
+```
+
+
+
+
+
+
+## x)  systemd unit (OUTDATED)
 ```bash
 export GIT_REPO=${PWD}
 export WWW_DIR=${PWD}/www
