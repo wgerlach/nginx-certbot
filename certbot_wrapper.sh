@@ -6,7 +6,7 @@ set -e
 nginx_reload () {
   sleep 3
   # using the docker socket a reload signal can be sent to nginx
-  echo -e "POST /containers/nginx_nginx_1/kill?signal=HUP HTTP/1.0\r\n" |nc local:/tmp/docker.sock
+  echo -e "POST /containers/nginxcertbot_nginx_1/kill?signal=HUP HTTP/1.0\r\n" |nc local:/tmp/docker.sock
   #nc -U /tmp/docker.sock
   sleep 2
 }
