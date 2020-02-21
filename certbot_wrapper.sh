@@ -24,17 +24,17 @@ echo "CERT_NAME=${CERT_NAME}"
 echo "DOMAIN_LIST=${DOMAIN_LIST}"
 echo "EMAIL=${EMAIL}"
 
-if [ ! -z "${CERT_NAME}" ]; then
+if [ -z "${CERT_NAME}" ]; then
   echo "Varaible CERT_NAME missing"
   exit 1
 fi
 
-if [ ! -z "${DOMAIN_LIST}" ]; then
+if [ -z "${DOMAIN_LIST}" ]; then
   echo "Varaible DOMAIN_LIST missing"
   exit 1
 fi
 
-if [ ! -z "${EMAIL}" ]; then
+if [ -z "${EMAIL}" ]; then
   echo "Varaible EMAIL missing"
   exit 1
 fi
