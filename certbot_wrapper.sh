@@ -12,12 +12,17 @@ nginx_reload () {
 }
 
 sleep 1
+
 if [ ! -e /config.src ] ; then
   echo "/config.src not found"
   exit 1
 fi
+
 source /config.src
 
+echo "CERT_NAME=${CERT_NAME}"
+echo "DOMAIN_LIST=${DOMAIN_LIST}"
+echo "EMAIL=${EMAIL}"
 
 if [ ! -z "${CERT_NAME}" ]; then
   echo "Varaible CERT_NAME missing"
