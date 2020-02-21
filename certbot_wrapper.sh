@@ -12,11 +12,11 @@ nginx_reload () {
 }
 
 sleep 1
-if [ ! -e config.src ] ; then
+if [ ! -e /config.src ] ; then
   echo "/config.src not found"
   exit 1
 fi
-source config.src
+source /config.src
 
 
 if [ ! -z "${CERT_NAME}" ]; then

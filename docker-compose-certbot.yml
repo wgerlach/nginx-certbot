@@ -8,8 +8,8 @@ services:
     depends_on:
       - "nginx"
     volumes:
-      - ${PWD}/certbot_wrapper.sh:/certbot_wrapper.sh
-      - ${PWD}/config.src:/config.src
+      - ${PWD}/certbot_wrapper.sh:/certbot_wrapper.sh:ro
+      - ${PWD}/config.src:/config.src:ro
       - ${PWD}/include_ssl/:/etc/nginx/include_ssl/:rw
       - letsencrypt:/etc/letsencrypt:rw
       - /var/run/docker.sock:/tmp/docker.sock
