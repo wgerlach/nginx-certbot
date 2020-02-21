@@ -1,0 +1,18 @@
+[Unit]
+Description=webserver
+
+
+[Service]
+
+ExecStartPre=-/usr/bin/docker rm -f webserver
+ExecStartPre=-/usr/bin/docker pull nginx:1-alpine
+ExecStart=/usr/bin/docker run -p 80:80 \
+	--name webserver \
+	-v ${GIT_REPO}/nginx/nginx.conf:/etc/nginx/conf.d/default.conf	\
+	-v ${WWW_DIR:/usr/share/nginx/html/:ro \
+	nginx:1-alpine
+
+ExecStopPost=/usr/bin/docker rm -f webserver
+
+[Install]
+WantedBy=multi-user.target
